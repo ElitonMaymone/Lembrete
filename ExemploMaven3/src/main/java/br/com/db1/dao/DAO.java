@@ -5,11 +5,11 @@ import java.util.List;
 public interface DAO<T> {
 		List<T> findAll();
 
-		T findById(Integer id);
+		T findById(Long id);
 
 
 		boolean save(T t);
 
-		boolean delete(Integer id);
+		boolean delete(Long id);
 
 }

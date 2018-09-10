@@ -1,10 +1,14 @@
 package br.com.db1.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name = "lembrete")
 public class Lembrete {
@@ -13,10 +17,13 @@ public class Lembrete {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(length = 2, nullable = false)
-	private String DESCRICAO;
+	@Column(length = 100, nullable = false)
+	private String descricao;
 	
-	
+	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
+	private Date data_lembrete;
+
 	public Integer getId() {
 		return id;
 	}
@@ -26,23 +33,19 @@ public class Lembrete {
 	}
 
 	public String getDescricao() {
-		return DESCRICAO;
+		return descricao;
 	}
 
 	public void setDescricao(String descricao) {
-		this.DESCRICAO = descricao;
+		this.descricao = descricao;
 	}
 
-	@Override
-	public String toString() {
-		return "Lembrete [id=" + id + ", descricao=" + DESCRICAO + "]";
+	public Date getData_lembrete() {
+		return data_lembrete;
 	}
 
-	public void setAnotacao(String string) {
-		// TODO Auto-generated method stub
-		
+	public void setData_lembrete(Date data_lembrete) {
+		this.data_lembrete = data_lembrete;
 	}
-	
-	
-
+			
 }
